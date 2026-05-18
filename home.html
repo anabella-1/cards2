@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Metropolis:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container": "#ffeadf",
+                    "error-container": "#ffdad6",
+                    "outline": "#81756f",
+                    "on-primary-fixed": "#271811",
+                    "outline-variant": "#d2c3bd",
+                    "on-secondary-fixed-variant": "#4a4640",
+                    "inverse-on-surface": "#ffede4",
+                    "inverse-surface": "#3a2e27",
+                    "on-primary-fixed-variant": "#56433a",
+                    "on-primary-container": "#5e4a41",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed-variant": "#5d3e49",
+                    "secondary-fixed-dim": "#ccc5be",
+                    "on-error-container": "#93000a",
+                    "surface-container-highest": "#f3dfd4",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-fixed": "#2d141d",
+                    "inverse-primary": "#dcc1b5",
+                    "primary-container": "#d6bbaf",
+                    "surface-bright": "#fff8f5",
+                    "tertiary-fixed": "#ffd9e4",
+                    "surface-tint": "#6f5a50",
+                    "surface-dim": "#ead6cc",
+                    "primary-fixed-dim": "#dcc1b5",
+                    "primary": "#6f5a50",
+                    "error": "#ba1a1a",
+                    "on-surface-variant": "#4f4540",
+                    "surface-container-high": "#f9e4d9",
+                    "on-secondary-fixed": "#1e1b16",
+                    "background": "#fff8f5",
+                    "on-tertiary-container": "#654550",
+                    "on-tertiary": "#ffffff",
+                    "on-background": "#241913",
+                    "secondary": "#625e58",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-container": "#e9e1d9",
+                    "surface-container-low": "#fff1ea",
+                    "secondary-fixed": "#e9e1d9",
+                    "on-surface": "#241913",
+                    "tertiary-container": "#e0b5c2",
+                    "primary-fixed": "#f9ddd0",
+                    "on-secondary-container": "#69645d",
+                    "on-primary": "#ffffff",
+                    "tertiary": "#775560",
+                    "surface": "#fff8f5",
+                    "tertiary-fixed-dim": "#e6bbc8",
+                    "surface-variant": "#f3dfd4"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-mobile": "20px",
+                    "margin-desktop": "64px",
+                    "gutter": "32px",
+                    "container-max": "1280px",
+                    "unit": "8px"
+            },
+            "fontFamily": {
+                    "label-caps": ["metropolis"],
+                    "headline-lg-mobile": ["metropolis"],
+                    "display-lg": ["metropolis"],
+                    "body-md": ["metropolis"],
+                    "label-sm": ["metropolis"],
+                    "headline-md": ["metropolis"],
+                    "headline-lg": ["metropolis"],
+                    "body-lg": ["metropolis"]
+            },
+            "fontSize": {
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "500"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>body { background-color: #fff8f5; color: #241913; -webkit-font-smoothing: antialiased; }
+        @keyframes revealScale {
+            0% { opacity: 0; transform: skew(-15deg, -15deg) rotate(45deg) scale(1.2); }
+            100% { opacity: 1; transform: skew(-15deg, -15deg) rotate(45deg) scale(1.4); }
+        }
+        .diamond-grid {
+            transform: rotate(-45deg) skew(15deg, 15deg);
+        }
+        .diamond-item {
+            transform: skew(-15deg, -15deg) rotate(45deg) scale(1.4);
+            object-fit: cover;
+            animation: revealScale 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+        .rhombus-container {
+            width: 280px;
+            height: 280px;
+            overflow: hidden;
+            border: 1px solid #d2c3bd;
+            background: #f9e4d9;
+            transition: all 700ms cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+        }
+        .rhombus-container:hover {
+            border-color: #6f5a50;
+            z-index: 10;
+            transform: scale(1.05);
+            box-shadow: 0 30px 60px -15px rgba(111, 90, 80, 0.2);
+        }</style>
+</head>
+<body class="overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="bg-background/90 backdrop-blur-xl border-b border-outline-variant docked full-width top-0 z-50 fixed w-full">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md uppercase tracking-tighter text-primary">House of Cards</div>
+<nav class="hidden md:flex items-center gap-gutter">
+<a class="font-label-caps text-label-caps text-primary border-b-2 border-primary pb-1" href="#">Collections</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">Bespoke</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">Atelier</a>
+</nav>
+<div class="flex items-center gap-unit-2">
+<button class="p-unit-2 hover:bg-surface-container-high transition-all duration-300 scale-95 active:opacity-80 rounded-full">
+<span class="material-symbols-outlined text-primary">shopping_bag</span>
+</button>
+<button class="p-unit-2 hover:bg-surface-container-high transition-all duration-300 scale-95 active:opacity-80 rounded-full">
+<span class="material-symbols-outlined text-primary">menu</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-32 pb-40 min-h-screen flex flex-col items-center">
+<!-- Hero Title Section -->
+<section class="text-center px-margin-mobile mb-20 max-w-4xl">
+<h1 class="font-display-lg text-display-lg uppercase tracking-tight text-on-surface leading-none mb-unit-4">
+<span class="text-primary block">House of Cards</span>
+                Products Catalog
+            </h1>
+<div class="w-24 h-px bg-primary mx-auto mb-unit-6"></div>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                An architectural exploration of premium stationery. Explore our latest atelier collections, featuring hand-pressed gold foil and bespoke heavy-stock textures.
+            </p>
+</section>
+<!-- Diamond Grid Collage -->
+<section class="relative w-full overflow-hidden py-20 flex justify-center">
+<div class="diamond-grid grid grid-cols-3 gap-8 md:gap-12">
+<!-- Row 1 -->
+<div class="rhombus-container">
+<img class="diamond-item w-full h-full" data-alt="A close-up high-resolution photograph of a premium invitation card" src="images/card1.jpg" style="animation-delay: 250ms;"/>
+</div>
+<div class="rhombus-container">
+<img class="diamond-item w-full h-full" data-alt="Luxurious wedding invitation envelopes" src="images/700.42.jpeg" style="animation-delay: 250ms;"/>
+</div>
+<div class="rhombus-container">
+<img class="diamond-item w-full h-full" data-alt="Metallic gold foil stamping machine" src="images/700.15.jpeg" style="animation-delay: 400ms;"/>
+</div>
+<!-- Row 2 -->
+<div class="rhombus-container">
+<img class="diamond-item w-full h-full" data-alt="Minimalist architectural flat lay" src="images/card2.jpeg" style="animation-delay: 550ms;"/>
+</div>
+<div class="rhombus-container">
+<img class="diamond-item w-full h-full" data-alt="Close-up of a bespoke invitation card" src="images/card3.jpeg" style="animation-delay: 700ms;"/>
+</div>
+<div class="rhombus-container">
+<img class="diamond-item w-full h-full" data-alt="Luxury business cards" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAh1HXyHKycHzke_Bwmjf0ofACqu69JW419fi4P0POGercW5kgOq95877N4aYMRmV43skC1cDZ4hKKq0bJhiWWGqsLWmhyP84EFsohtQaqtEP9tFKllIoD-kuOq4g_9Vy1Kze93OI7sgaD2gUDWxOkC0_f5URncVjN2QWVb1zpZCHDJhf7HOk8Q1u5qS5T8joQmNtiKwDZ9d18eRtRGt4fX9B_CI2_tSDZuA0Eyqhfz9wuO2qDRWHMVyFMCFT6xC4O4GC9b6X31EyWE" style="animation-delay: 850ms;"/>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="mt-40 text-center px-margin-mobile">
+<button class="px-12 py-4 bg-primary text-on-primary font-label-caps text-label-caps uppercase tracking-widest hover:bg-primary/90 transition-all duration-300 scale-100 active:scale-95 shadow-lg shadow-primary/20">
+                Request Physical Catalog
+            </button>
+<p class="mt-unit-4 font-label-caps text-label-caps text-outline">Limited Edition Atelier Print</p>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-12 mt-16 max-w-container-max mx-auto">
+<div class="mb-unit-4 md:mb-0">
+<div class="font-headline-md text-headline-md text-primary mb-2">House of Cards</div>
+<p class="font-body-md text-body-md text-on-surface-variant opacity-80">© 2026 House of Cards Products. All rights Reserved.</p>
+</div>
+<div class="flex gap-gutter">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">Contact Atelier</a>
+</div>
+</div>
+</footer>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter pb-safe pt-unit-4 bg-surface-container-lowest/95 backdrop-blur-2xl border-t border-outline-variant">
+<a class="flex flex-col items-center justify-center text-primary font-bold transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-caps text-[10px] mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:opacity-100" href="#">
+<span class="material-symbols-outlined">auto_stories</span>
+<span class="font-label-caps text-[10px] mt-1">Archive</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:opacity-100" href="#">
+<span class="material-symbols-outlined">bookmark</span>
+<span class="font-label-caps text-[10px] mt-1">Saved</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:opacity-100" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-caps text-[10px] mt-1">Profile</span>
+</a>
+</nav>
+</body></html>
